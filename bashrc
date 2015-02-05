@@ -15,6 +15,10 @@ alias ack='ack-grep'
 
 alias dus='du -sch .[!.]* * | sort -h'
 alias grep='grep --color'
+alias sshcsie='ssh r97120@linux7.csie.ntu.edu.tw'
+alias ll='ls -alF'
+
+LANG=en_US.UTF-8
 
 export LESS='-RS#3NM~g'
 
@@ -26,7 +30,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
 
 for i in ~/dotfiles/bashrc.d/*; do
 	source $i
