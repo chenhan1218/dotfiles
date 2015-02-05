@@ -28,3 +28,6 @@ if ! shopt -oq posix; then
 fi
 
 
+for i in ~/dotfiles/bashrc.d/*; do
+	source $i
+done
