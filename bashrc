@@ -21,6 +21,7 @@ alias ll='ls -alF'
 LANG=en_US.UTF-8
 
 export LESS='-RS#3NM~g'
+eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 
 # enable bash completion in interactive shells
 if ! shopt -oq posix; then
