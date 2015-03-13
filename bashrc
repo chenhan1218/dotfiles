@@ -7,6 +7,9 @@
 #     . ~/.bash_aliases
 #     fi
 
+PATH=~/dotfiles/bin:"$PATH"
+export PATH
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
