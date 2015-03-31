@@ -88,6 +88,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias venv='. ~/git/venv/bin/activate'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -135,11 +136,15 @@ alias dus='du -sch .[!.]* * | sort -h'
 alias grep='grep --color'
 alias sshcsie='ssh r97120@linux7.csie.ntu.edu.tw'
 alias ll='ls -alF'
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
 
 LANG=en_US.UTF-8
 
 export LESS='-RS#3NM~g'
 eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
+export NVM_DIR="/home/chenhan/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # enable bash completion in interactive shells
 if ! shopt -oq posix; then
