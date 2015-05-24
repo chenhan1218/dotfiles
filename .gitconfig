@@ -35,7 +35,7 @@
 	changed = yellow bold
 	untracked = red bold
 [diff]
-	tool = vimdiff
+	tool = meld
 [alias]
     st = status
     ci = commit
