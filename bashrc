@@ -143,7 +143,7 @@ LANG=en_US.UTF-8
 
 export LESS='-RS#3NM~g'
 eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
-export NVM_DIR="/home/chenhan/.nvm"
+export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # enable bash completion in interactive shells
