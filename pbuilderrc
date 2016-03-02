@@ -1,0 +1,12 @@
+export CCACHE_DIR="/var/cache/ccache"
+export PATH="/usr/lib/ccache:${PATH}"
+
+EXTRAPACKAGES="${EXTRAPACKAGES} ccache pbuilder devscripts gnupg patchutils vim-tiny"
+BINDMOUNTS="${BINDMOUNTS} ${CCACHE_DIR}"
+PBUILDER_SRCDIR_FORMAT="pkg"
+DEB_BUILD_OPTIONS="parallel=4"
+
+UBUNTU_MIRROR="ubuntu.cs.nctu.edu.tw"
+DEBIAN_MIRROR="debian.nctu.edu.tw"
+export APTGETOPT=("--force-yes")
+
