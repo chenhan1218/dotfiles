@@ -1,0 +1,3 @@
+DEBUILD_DPKG_BUILDPACKAGE_OPTS="-k'Chen-Han Hsiao (Stanley) <stanley.hsiao@canonical.com>' -sa -I -i"
+DEBUILD_LINTIAN_OPTS="-i -I --show-overrides"
+

@@ -143,6 +143,10 @@ LANG=en_US.UTF-8
 
 export LESS='-RS#3NM~g'
 eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
+export DEBFULLNAME="Chen-Han Hsiao (Stanley)"
+export DEBEMAIL="stanley.hsiao@canonical.com"
+export GPGKEY="3F77D529"
+
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
