@@ -8,6 +8,7 @@ ln -s $DIR/bazaar ~/.bazaar
 ln -s $DIR/devscripts ~/.devscripts
 ln -s $DIR/gdbinit ~/.gdbinit
 ln -s $DIR/pbuilderrc ~/.pbuilderrc
+ln -s $DIR/quiltrc-dpkg ~/.quiltrc-dpkg
 ln -s $DIR/tmux.conf ~/.tmux.conf
 git clone https://github.com/swem/tmux-config ~/tmux-config && ln -sf ~/tmux-config/.tmux.conf ~/.tmux.conf
 ln -s $DIR/vimrc ~/.vimrc

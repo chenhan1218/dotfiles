@@ -138,6 +138,8 @@ alias sshcsie='ssh r97120@linux7.csie.ntu.edu.tw'
 alias ll='ls -alF'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
+alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
+complete -F _quilt_completion $_quilt_complete_opt dquilt
 
 LANG=en_US.UTF-8
 
