@@ -88,7 +88,6 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias venv='. ~/git/venv/bin/activate'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -127,21 +126,19 @@ PATH=~/dotfiles/bin:"$PATH"
 export PATH
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 alias ack='ack-grep'
+alias venv='. ~/git/venv/bin/activate'
 
 alias dus='du -sch .[!.]* * | sort -h'
 alias grep='grep --color'
-alias sshcsie='ssh r97120@linux7.csie.ntu.edu.tw'
-alias ll='ls -alF'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 complete -F _quilt_completion $_quilt_complete_opt dquilt
 
 LANG=en_US.UTF-8
+export VISUAL=vim
+export EDITOR=vim
 
 export LESS='-RS#3NM~g'
 eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
@@ -151,15 +148,6 @@ export GPGKEY="3F77D529"
 
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# enable bash completion in interactive shells
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
 
 for i in ~/dotfiles/bashrc.d/*; do
 	source $i
