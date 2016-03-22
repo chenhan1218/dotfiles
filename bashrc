@@ -148,6 +148,7 @@ export GPGKEY="3F77D529"
 
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 for i in ~/dotfiles/bashrc.d/*; do
 	source $i
