@@ -129,6 +129,7 @@ export PATH
 alias ack='ack-grep'
 alias venv='. ~/git/venv/bin/activate'
 
+alias purgeall='dpkg --list |grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --purge'
 alias dus='du -sch .[!.]* * | sort -h'
 alias grep='grep --color'
 alias pbcopy='xsel --clipboard --input'
