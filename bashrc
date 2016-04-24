@@ -123,9 +123,17 @@ fi
 #     fi
 
 PATH=~/dotfiles/bin:"$PATH"
-export PATH
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+if [ "$(uname)" == "Darwin" ]; then
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
+fi
 
 # some more ls aliases
+alias ls='ls --color=auto'
 alias ack='ack-grep'
 alias venv='. ~/git/venv/bin/activate'
 
