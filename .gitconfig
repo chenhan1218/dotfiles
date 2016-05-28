@@ -5,6 +5,8 @@
 	editor = vim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	excludesfile = ~/.gitignore
+[url "git+ssh://swem@git.launchpad.net/"]
+	insteadof = lp:
 [web]
 	browser = google-chrome
 [instaweb]
