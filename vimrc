@@ -4,17 +4,45 @@
 
 " read https://github.com/vgod/vimrc/blob/master/README.md for more info
 
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" For pathogen.vim: auto load all plugins in .vim/bundle
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-let g:pathogen_disabled = []
-if !has('gui_running')
-   call add(g:pathogen_disabled, 'powerline')
-endif
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'wincent/command-t'
+Plugin 'majutsushi/tagbar'
+Plugin 'airblade/vim-gitgutter.git'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'fatih/vim-go'
+" plugin from http://vim-scripts.org/vim/scripts.html
+Plugin 'L9'
 
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 " General Settings
 
 set nocompatible	" not compatible with the old-fashion vi mode
@@ -22,14 +50,11 @@ set bs=2		" allow backspacing over everything in insert mode
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set autoread		" auto read when file is changed from outside
-set directory=/tmp
-set backupdir=/tmp
+set directory=$HOME/.vim/swapfiles//
+set backupdir=$HOME/.vim/swapfiles//
 set nu
 
 
-filetype off          " necessary to make ftdetect work on Linux
-syntax on
-filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
 
@@ -40,19 +65,6 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 
 syntax on		" syntax highlight
 set hlsearch		" search highlighting
-
-if has("gui_running")	" GUI color and font settings
-  set guifont=Osaka-Mono:h20
-  set background=dark
-  set t_Co=256          " 256 color mode
-  set cursorline        " highlight current line
-  colors moria
-  highlight CursorLine          guibg=#003853 ctermbg=24  gui=none cterm=none
-else
-" terminal color settings
-  colors desert
-  set background=light
-endif
 
 set clipboard=unnamed	" yank to the system register (*) by default
 set showmatch		" Cursor shows matching ) and }
@@ -346,12 +358,6 @@ endif
 " --- Command-T
 let g:CommandTMaxHeight = 15
 
-" --- SuperTab
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
-let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
-
-
 " --- EasyMotion
 "let g:EasyMotion_leader_key = '<Leader>m' " default is <Leader>w
 hi link EasyMotionTarget ErrorMsg
@@ -359,8 +365,8 @@ hi link EasyMotionShade  Comment
 
 
 " --- TagBar
-" toggle TagBar with F7
-nnoremap <silent> <F7> :TagbarToggle<CR> 
+" toggle TagBar with F8
+nmap <F8> :TagbarToggle<CR>
 " set focus to TagBar when opening it
 let g:tagbar_autofocus = 1
 
@@ -371,16 +377,14 @@ let g:tagbar_autofocus = 1
 " --- SnipMate
 let g:snipMateAllowMatchingDot = 0
 
-" --- coffee-script
-au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw! " recompile coffee scripts on write
-
 " --- vim-gitgutter
 let g:gitgutter_enabled = 1
+let g:gitgutter_override_sign_column_highlight = 0
 
+set t_Co=256          " 256 color mode
 if has("gui_running")	" GUI color and font settings
   set guifont=Osaka-Mono:h20
   set background=dark 
-  set t_Co=256          " 256 color mode
   set cursorline        " highlight current line
   colors moria
   highlight CursorLine          guibg=#003853 ctermbg=24  gui=none cterm=none
