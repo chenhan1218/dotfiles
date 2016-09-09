@@ -123,13 +123,13 @@ fi
 #     fi
 
 PATH=~/dotfiles/bin:"$PATH"
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 if [ "$(uname)" == "Darwin" ]; then
     if [ -f $(brew --prefix)/etc/bash_completion ]; then
         . $(brew --prefix)/etc/bash_completion
     fi
+    PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 fi
 
 # some more ls aliases
@@ -140,6 +140,7 @@ alias venv='. ~/git/venv/bin/activate'
 alias purgeall='dpkg --list |grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --purge'
 alias dus='du -sch .[!.]* * | sort -h'
 alias grep='grep --color'
+alias psc='ps xawf -eo pid,user,cgroup,args'
 if [ "$(uname)" != "Darwin" ]; then
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
@@ -155,7 +156,6 @@ export LESS='-RS#3NM~g'
 eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 export DEBFULLNAME="Chen-Han Hsiao (Stanley)"
 export DEBEMAIL="stanley.hsiao@canonical.com"
-export GPGKEY="3F77D529"
 
 # export NVM_DIR=~/.nvm
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

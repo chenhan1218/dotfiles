@@ -10,3 +10,4 @@ UBUNTU_MIRROR="ubuntu.cs.nctu.edu.tw"
 DEBIAN_MIRROR="debian.nctu.edu.tw"
 export APTGETOPT=("--force-yes")
 
+# USENETWORK=yes

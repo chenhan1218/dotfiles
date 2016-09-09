@@ -1,1 +1,1 @@
--f 'bestvideo[height<=480]+bestaudio/best[height<=480]'
+-f '(mp4)[height<480]'
