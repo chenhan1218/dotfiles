@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 ln -s $DIR/bashrc ~/.bashrc
+ln -s $DIR/.zshrc ~/.zshrc
 ln -s $DIR/pam_environment ~/.pam_environment
 ln -s $DIR/.gitconfig ~
 ln -s $DIR/.gitignore ~
