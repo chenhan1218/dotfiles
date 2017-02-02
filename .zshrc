@@ -2,12 +2,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="ys"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -53,9 +53,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-if [ -f $ZSH/oh-my-zsh.sh ]; then
-  source $ZSH/oh-my-zsh.sh
-fi
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -75,7 +73,7 @@ fi
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -86,5 +84,20 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-autoload colors && colors
-PROMPT="%{$fg[cyan]%}%n%{$reset_color%}@%{$fg[cyan]%}%m %* %{$fg_no_bold[green]%}%~ [%{$fg_no_bold[yellow]%}%?%{$reset_color%}] %{$reset_color%}%# "
+# personalized
+[[ -r /etc/zsh_command_not_found ]] && . /etc/zsh_command_not_found
+alias dus='du -sch .[!.]* * | sort -h'
+alias purgeall='dpkg --list |grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --purge'
+if [ "$(uname)" != "Darwin" ]; then
+    alias pbcopy='xsel --clipboard --input'
+    alias pbpaste='xsel --clipboard --output'
+fi
+
+alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
+
+eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
+export DEBFULLNAME="Chen-Han Hsiao (Stanley)"
+export DEBEMAIL="stanley.hsiao@canonical.com"
+
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+PATH=~/dotfiles/bin:"$PATH"
