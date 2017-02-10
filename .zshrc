@@ -85,8 +85,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # personalized
+setopt noautomenu
+setopt nonomatch
 [[ -r /etc/zsh_command_not_found ]] && . /etc/zsh_command_not_found
-alias dus='du -sch .[!.]* * | sort -h'
+alias dus='du -sch .* * | sort -h'
 alias purgeall='dpkg --list |grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --purge'
 if [ "$(uname)" != "Darwin" ]; then
     alias pbcopy='xsel --clipboard --input'
