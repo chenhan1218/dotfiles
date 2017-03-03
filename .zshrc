@@ -85,6 +85,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # personalized
+
+# auto complete hidden files
+_comp_options+=(globdots)
+
 setopt noautomenu
 setopt nonomatch
 [[ -r /etc/zsh_command_not_found ]] && . /etc/zsh_command_not_found
