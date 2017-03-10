@@ -1,6 +1,6 @@
 [user]
-	email = r97922120@ntu.edu.tw
 	name = Chen-Han Hsiao (Stanley)
+	email = 
 [core]
 	editor = vim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
