@@ -91,6 +91,7 @@ _comp_options+=(globdots)
 
 setopt noautomenu
 setopt nonomatch
+setopt HIST_IGNORE_SPACE
 [[ -r /etc/zsh_command_not_found ]] && . /etc/zsh_command_not_found
 alias dus='du -sch .* * | sort -h'
 alias purgeall='dpkg --list |grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --purge'
