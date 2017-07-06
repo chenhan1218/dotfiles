@@ -93,6 +93,8 @@ setopt noautomenu
 setopt nonomatch
 setopt HIST_IGNORE_SPACE
 [[ -r /etc/zsh_command_not_found ]] && . /etc/zsh_command_not_found
+alias mv='mv -i'
+alias cp='cp -i'
 alias dus='du -sch .* * | sort -h'
 alias purgeall='dpkg --list |grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --purge'
 if [ "$(uname)" != "Darwin" ]; then
@@ -107,4 +109,6 @@ export DEBFULLNAME="Chen-Han Hsiao (Stanley)"
 export DEBEMAIL="stanley.hsiao@canonical.com"
 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-PATH=~/dotfiles/bin:"$PATH"
+
+# add ~/.local/bin python user scheme to PATH
+export PATH=~/dotfiles/bin:~/.local/bin:"$PATH"
