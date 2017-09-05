@@ -12,9 +12,9 @@ ln -s $DIR/gdbinit ~/.gdbinit
 ln -s $DIR/pbuilderrc ~/.pbuilderrc
 ln -s $DIR/quiltrc-dpkg ~/.quiltrc-dpkg
 ln -s $DIR/tmux.conf ~/.tmux.conf
-git clone https://github.com/swem/tmux-config ~/.tmux \
+git clone https://github.com/chenhan1218/tmux-config ~/.tmux \
     && ln -sf ~/.tmux/.tmux.conf ~/.tmux.conf \
     && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -s $DIR/vimrc ~/.vimrc
-git clone https://github.com/swem/vimrc ~/.vim && ln -sf ~/.vim/vimrc ~/.vimrc
+git clone https://github.com/chenhan1218/vimrc ~/.vim && ln -sf ~/.vim/vimrc ~/.vimrc
 
