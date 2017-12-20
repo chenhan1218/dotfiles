@@ -138,7 +138,7 @@ alias ack='ack-grep'
 alias venv='. ~/git/venv/bin/activate'
 
 alias purgeall='dpkg --list |grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --purge'
-alias dus='du -sch .[!.]* * | sort -h'
+alias dus='du -d 1 -h . | sort -h'
 alias grep='grep --color'
 alias psc='ps xawf -eo pid,user,cgroup,args'
 if [ "$(uname)" != "Darwin" ]; then
