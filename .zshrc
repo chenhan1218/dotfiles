@@ -106,7 +106,6 @@ alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 
 eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 export DEBFULLNAME="Chen-Han Hsiao (Stanley)"
-export DEBEMAIL="stanley.hsiao@canonical.com"
 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
