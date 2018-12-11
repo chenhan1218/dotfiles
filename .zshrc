@@ -107,6 +107,10 @@ alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 export DEBFULLNAME="Chen-Han Hsiao (Stanley)"
 
+kjupyter() {
+  docker run -v $PWD:/tmp/working -w=/tmp/working -p 8888:8888 --rm -it kaggle/python jupyter notebook --no-browser --ip="0.0.0.0" --allow-root --notebook-dir=/tmp/working
+}
+
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 # add ~/.local/bin python user scheme to PATH
