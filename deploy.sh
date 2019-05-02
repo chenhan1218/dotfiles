@@ -6,6 +6,7 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 ln -s $DIR/pam_environment ~/.pam_environment
 ln -s $DIR/.gitconfig ~
 ln -s $DIR/.gitignore ~
+ln -s $DIR/.profile ~
 ln -s $DIR/bazaar ~/.bazaar
 ln -s $DIR/devscripts ~/.devscripts
 ln -s $DIR/gdbinit ~/.gdbinit
