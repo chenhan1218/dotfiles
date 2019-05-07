@@ -51,7 +51,7 @@ ZSH_THEME="ys"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(aws git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -113,5 +113,3 @@ kjupyter() {
 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
-# add ~/.local/bin python user scheme to PATH
-export PATH=~/dotfiles/bin:~/.local/bin:"$PATH"
