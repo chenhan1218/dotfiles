@@ -124,14 +124,6 @@ fi
 
 PATH=~/dotfiles/bin:"$PATH"
 
-if [ "$(uname)" == "Darwin" ]; then
-    if [ -f $(brew --prefix)/etc/bash_completion ]; then
-        . $(brew --prefix)/etc/bash_completion
-    fi
-    PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-    export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-fi
-
 # some more ls aliases
 alias ls='ls --color=auto'
 alias ack='ack-grep'
@@ -141,10 +133,7 @@ alias purgeall='dpkg --list |grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --pu
 alias dus='du -sch .[!.]* * | sort -h'
 alias grep='grep --color'
 alias psc='ps xawf -eo pid,user,cgroup,args'
-if [ "$(uname)" != "Darwin" ]; then
-    alias pbcopy='xsel --clipboard --input'
-    alias pbpaste='xsel --clipboard --output'
-fi
+
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 complete -F _quilt_completion $_quilt_complete_opt dquilt
 
@@ -153,9 +142,21 @@ export VISUAL=vim
 export EDITOR=vim
 
 export LESS='-RS#3NM~g'
-eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 export DEBFULLNAME="Chen-Han Hsiao (Stanley)"
 export DEBEMAIL="stanley.hsiao@canonical.com"
+
+if [ "$(uname)" == "Linux" ]; then
+    eval `keychain --eval --quiet --agents ssh id_rsa`
+    alias pbcopy='xsel --clipboard --input'
+    alias pbpaste='xsel --clipboard --output'
+elif [ "$(uname)" == "Darwin" ]; then
+    eval `keychain --eval --agents ssh --inherit any id_rsa`
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
+    PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+fi
 
 # export NVM_DIR=~/.nvm
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

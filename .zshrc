@@ -97,15 +97,18 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias dus='du -sch .* * | sort -h'
 alias purgeall='dpkg --list |grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --purge'
-if [ "$(uname)" != "Darwin" ]; then
-    alias pbcopy='xsel --clipboard --input'
-    alias pbpaste='xsel --clipboard --output'
-fi
 
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 
-eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 export DEBFULLNAME="Chen-Han Hsiao (Stanley)"
+
+if [ "$(uname)" == "Linux" ]; then
+    eval `keychain --eval --quiet --agents ssh id_rsa`
+    alias pbcopy='xsel --clipboard --input'
+    alias pbpaste='xsel --clipboard --output'
+elif [ "$(uname)" == "Darwin" ]; then
+    eval `keychain --eval --agents ssh --inherit any id_rsa`
+fi
 
 kjupyter() {
   docker run -v $PWD:/tmp/working -w=/tmp/working -p 8888:8888 --rm -it kaggle/python jupyter notebook --no-browser --ip="0.0.0.0" --allow-root --notebook-dir=/tmp/working
