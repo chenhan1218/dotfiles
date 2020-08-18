@@ -150,7 +150,7 @@ if [ "$(uname)" == "Linux" ]; then
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
 elif [ "$(uname)" == "Darwin" ]; then
-    eval `keychain --eval --agents ssh --inherit any id_rsa`
+    eval `keychain --eval --quiet --agents ssh --inherit any id_rsa`
     if [ -f $(brew --prefix)/etc/bash_completion ]; then
         . $(brew --prefix)/etc/bash_completion
     fi
