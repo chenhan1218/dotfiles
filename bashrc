@@ -154,6 +154,10 @@ elif [ "$(uname)" == "Darwin" ]; then
     if [ -f $(brew --prefix)/etc/bash_completion ]; then
         . $(brew --prefix)/etc/bash_completion
     fi
+    # for brew coreutils
+    # Commands also provided by macOS have been installed with the prefix "g".
+    # If you need to use these commands with their normal names, you
+    # can add a "gnubin" directory to your PATH from your bashrc like:
     PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 fi
