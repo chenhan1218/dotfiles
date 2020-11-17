@@ -97,6 +97,7 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias dus='du -sch .* * | sort -h'
 alias purgeall='dpkg --list |grep "^rc" | cut -d " " -f 3 | xargs sudo dpkg --purge'
+# docker rmi $(docker images | grep stuff_ | tr -s ' ' | cut -d ' ' -f 3)
 
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 
@@ -117,6 +118,15 @@ elif [ "$(uname)" == "Darwin" ]; then
     export DISPLAY=:0
     # Add Visual Studio Code (code)
     export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+    # Mac OS X: ValueError: unknown locale: UTF-8 in Python
+    # https://github.com/pypa/pipenv/issues/187
+    export LC_ALL=en_US.UTF-8
+    export LANG=en_US.UTF-8
+    # To link Rubies to Homebrew's OpenSSL 1.1 (which is upgraded) add the following
+    # to your ~/.zshrc:
+    # Note: this may interfere with building old versions of Ruby (e.g <2.4) that use
+    # OpenSSL <1.1.
+    export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 fi
 
 kjupyter() {
@@ -124,6 +134,13 @@ kjupyter() {
 }
 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+# pyenv-virtualenv
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# eval "$(nodenv init -)"
+export PATH=$HOME/.nodenv/bin:$HOME/.nodenv/shims:$PATH
 
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/snap/bin
