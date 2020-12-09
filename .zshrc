@@ -136,8 +136,11 @@ kjupyter() {
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 # pyenv-virtualenv
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if command -v pyenv
+then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
 # eval "$(nodenv init -)"
 export PATH=$HOME/.nodenv/bin:$HOME/.nodenv/shims:$PATH
