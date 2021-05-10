@@ -108,6 +108,7 @@ if [ "$(uname)" == "Linux" ]; then
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
 elif [ "$(uname)" == "Darwin" ]; then
+    alias ls='ls --color'
     eval `keychain --eval --quiet --agents ssh --inherit any id_rsa`
     # for brew coreutils
     # Commands also provided by macOS have been installed with the prefix "g".
@@ -127,13 +128,29 @@ elif [ "$(uname)" == "Darwin" ]; then
     # Note: this may interfere with building old versions of Ruby (e.g <2.4) that use
     # OpenSSL <1.1.
     export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+    # path for homebrew mysql
+    export PATH="/usr/local/opt/mysql-client@5.7/bin:$PATH"
+    # export LDFLAGS="-L/usr/local/opt/mysql-client@5.7/lib":$LDFLAGS
+    # export CPPFLAGS="-I/usr/local/opt/mysql-client@5.7/include":$CPPFLAGS
+    # export LDFLAGS="-L/usr/local/opt/mysql@5.7/lib"
+    # export CPPFLAGS="-I/usr/local/opt/mysql@5.7/include"
+    # export PKG_CONFIG_PATH="/usr/local/opt/mysql@5.7/lib/pkgconfig"
+    export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 fi
 
 kjupyter() {
   docker run -v $PWD:/tmp/working -w=/tmp/working -p 8888:8888 --rm -it kaggle/python jupyter notebook --no-browser --ip="0.0.0.0" --allow-root --notebook-dir=/tmp/working
 }
 
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+# auto completion from homebrew
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
+# [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 # pyenv-virtualenv
 if command -v pyenv
