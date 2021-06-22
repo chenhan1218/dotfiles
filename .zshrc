@@ -135,7 +135,9 @@ elif [ "$(uname)" == "Darwin" ]; then
     # export LDFLAGS="-L/usr/local/opt/mysql@5.7/lib"
     # export CPPFLAGS="-I/usr/local/opt/mysql@5.7/include"
     # export PKG_CONFIG_PATH="/usr/local/opt/mysql@5.7/lib/pkgconfig"
-    # export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+    # disable multithreading restriction in mac os
+    export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 fi
 
 kjupyter() {
