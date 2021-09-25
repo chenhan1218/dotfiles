@@ -1,1 +1,1 @@
-tar -zcvf chenhan-home.tar.gz git .config .local dotfiles .vscode .vscode-server .zsh_history .ssh .oh-my-zsh .vim .tmux .aws .nodenv env
+tar -zcvf home.tar.gz git .config .local dotfiles .vscode .vscode-server .zsh_history .ssh .oh-my-zsh .vim .tmux .aws .nodenv env
