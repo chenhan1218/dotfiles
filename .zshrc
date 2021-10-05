@@ -138,6 +138,8 @@ elif [ "$(uname)" == "Darwin" ]; then
 
     # disable multithreading restriction in mac os
     export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+    # [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 fi
 
 kjupyter() {
