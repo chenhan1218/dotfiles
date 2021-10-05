@@ -157,7 +157,7 @@ fi
 # pyenv-virtualenv
 if command -v pyenv
 then
-    eval "$(pyenv init -)"
+    eval "$(pyenv init --path)"
     eval "$(pyenv virtualenv-init -)"
 fi
 
