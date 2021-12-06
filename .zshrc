@@ -136,6 +136,11 @@ elif [ "$(uname)" == "Darwin" ]; then
     # export CPPFLAGS="-I/usr/local/opt/mysql@5.7/include"
     # export PKG_CONFIG_PATH="/usr/local/opt/mysql@5.7/lib/pkgconfig"
 
+    # openblas for install/build python package scipy
+    export LDFLAGS="-L/usr/local/opt/openblas/lib":$LDFLAGS
+    export CPPFLAGS="-I/usr/local/opt/openblas/include":$CPPFLAGS
+    export PKG_CONFIG_PATH="/usr/local/opt/openblas/lib/pkgconfig":$PKG_CONFIG_PATH
+
     # disable multithreading restriction in mac os
     export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
