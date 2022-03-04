@@ -159,7 +159,13 @@ if type brew &>/dev/null; then
   compinit
 fi
 
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$PATH:/snap/bin
+
 # [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+# eval "$(nodenv init -)"
+export PATH=$HOME/.nodenv/bin:$HOME/.nodenv/shims:$PATH
 
 # pyenv-virtualenv
 if command -v pyenv
@@ -169,9 +175,4 @@ then
     eval "$(pyenv virtualenv-init -)"
 fi
 
-# eval "$(nodenv init -)"
-export PATH=$HOME/.nodenv/bin:$HOME/.nodenv/shims:$PATH
-
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export PATH=$PATH:/snap/bin
 
