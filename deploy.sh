@@ -3,7 +3,7 @@ DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 ln -s $DIR/bin ~/bin
 ln -s $DIR/bashrc ~/.bashrc
 ln -s $DIR/.zshrc ~/.zshrc
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 ln -s $DIR/pam_environment ~/.pam_environment
 ln -s $DIR/.gitconfig ~
 ln -s $DIR/.gitignore ~
